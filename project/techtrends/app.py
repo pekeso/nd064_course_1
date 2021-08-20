@@ -2,6 +2,7 @@ import sqlite3
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
+from werkzeug.wrappers import response
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
@@ -64,6 +65,16 @@ def create():
             return redirect(url_for('index'))
 
     return render_template('create.html')
+
+# Define the healthcheck endpoint
+@app.route('/healthz')
+def health_check(): 
+    response = app.response_class(
+        response=json.dumps({"result":"OK - healthy"}),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
 
 # start the application on port 3111
 if __name__ == "__main__":
