@@ -1,0 +1,2 @@
+# Do not include the database in the building process
+techtrends/database.db
