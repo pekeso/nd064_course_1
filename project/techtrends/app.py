@@ -25,7 +25,7 @@ def get_post(post_id):
     connection.close()
     title = post[2]
     logger = logging.getLogger('app')
-    logger.info(f'Article "{title}" retrieved!')
+    logger.info('Article "{}" retrieved!'.format(title))
     return post
 
 # Define the Flask application
@@ -75,7 +75,7 @@ def create():
             connection.commit()
             connection.close()
             logger = logging.getLogger('app')
-            logger.info(f'New article "{title}" has been created!')
+            logger.info('New article "{}" has been created!'.format(title))
 
             return redirect(url_for('index'))
 
