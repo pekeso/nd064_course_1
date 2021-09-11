@@ -46,6 +46,11 @@ spec:
             port: 3111
 
         resources: 
-        {{ toYaml .Values.resources | indent 10 }}
+          requests:
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
+          limits:
+            memory: {{ .Values.resources.limits.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
 
 status: {}
