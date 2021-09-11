@@ -15,12 +15,12 @@ image:
 replicaCount: 1
 
 resources:
-  requests:
-    cpu: 250m
+  requests:    
     memory: 64Mi
-  limits:
-    cpu: 500m
+    cpu: 250m
+  limits:    
     memory: 128Mi
+    cpu: 500m
   
 containerPort: 3111
 
